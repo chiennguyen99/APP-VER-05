@@ -1,0 +1,65 @@
+#checkboxAll {
+    margin-left: 21px; 
+}
+
+#checkboxIndex {
+    margin-left: 21px; 
+}
+
+.btnt-Like {
+    width: 80px; 
+    height: 30px;
+    margin-right: 10px;
+    background-color: white; 
+}
+
+.album {
+    margin-left: 23px; 
+}
+
+.second-comment {
+    margin-left: 50px; 
+}
+.push-comment {
+    margin-top: 20px; 
+}
+
+.cmt1 {
+    margin-left: 5px; 
+}
+
+.Image-content-blogpost {
+    width: 128px; height: 128px; 
+    background: url(../css.dev/Image/iconfinder_like_1814076.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: block!important;
+}
+
+.image-comment {
+    width: 128px; height: 128px; 
+    background: url(../css.dev/Image/iconfinder_like_1814076.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: block!important;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+}

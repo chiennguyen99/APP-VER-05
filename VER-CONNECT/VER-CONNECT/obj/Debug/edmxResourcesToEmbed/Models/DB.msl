@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="manageremployeeModelStoreContainer" CdmEntityContainer="manageremployeeEntities">
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="manageremployeeModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="manageremployeeModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="manageremployeeModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="manageremployeeModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blogposts">
+      <EntityTypeMapping TypeName="manageremployeeModel.blogpost">
+        <MappingFragment StoreEntitySet="blogposts">
+          <ScalarProperty Name="postId" ColumnName="postId" />
+          <ScalarProperty Name="blogID" ColumnName="blogID" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="postDate" ColumnName="postDate" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="blogs">
+      <EntityTypeMapping TypeName="manageremployeeModel.blog">
+        <MappingFragment StoreEntitySet="blogs">
+          <ScalarProperty Name="blogID" ColumnName="blogID" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="blogTitle" ColumnName="blogTitle" />
+          <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="manageremployeeModel.comment">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="commentID" ColumnName="commentID" />
+          <ScalarProperty Name="postId" ColumnName="postId" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="cmtTime" ColumnName="cmtTime" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contactemployeeinfoes">
+      <EntityTypeMapping TypeName="manageremployeeModel.contactemployeeinfo">
+        <MappingFragment StoreEntitySet="contactemployeeinfo">
+          <ScalarProperty Name="idContact" ColumnName="idContact" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="ctCity" ColumnName="ctCity" />
+          <ScalarProperty Name="ctAddress" ColumnName="ctAddress" />
+          <ScalarProperty Name="ctPostalCode" ColumnName="ctPostalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="employeedetails">
+      <EntityTypeMapping TypeName="manageremployeeModel.employeedetail">
+        <MappingFragment StoreEntitySet="employeedetail">
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="avtUrl" ColumnName="avtUrl" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="qualifications">
+      <EntityTypeMapping TypeName="manageremployeeModel.qualification">
+        <MappingFragment StoreEntitySet="qualification">
+          <ScalarProperty Name="idQualification" ColumnName="idQualification" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="experience" ColumnName="experience" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="salaryinfoes">
+      <EntityTypeMapping TypeName="manageremployeeModel.salaryinfo">
+        <MappingFragment StoreEntitySet="salaryinfo">
+          <ScalarProperty Name="idSalaryinfo" ColumnName="idSalaryinfo" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="monthlySalary" ColumnName="monthlySalary" />
+          <ScalarProperty Name="monneyCurrency" ColumnName="monneyCurrency" />
+          <ScalarProperty Name="monneyDeductions" ColumnName="monneyDeductions" />
+          <ScalarProperty Name="monneyInsurance" ColumnName="monneyInsurance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="secondcomments">
+      <EntityTypeMapping TypeName="manageremployeeModel.secondcomment">
+        <MappingFragment StoreEntitySet="secondcomment">
+          <ScalarProperty Name="secondcmt" ColumnName="secondcmt" />
+          <ScalarProperty Name="commentID" ColumnName="commentID" />
+          <ScalarProperty Name="employeeIDcmt" ColumnName="employeeIDcmt" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="cmtTime" ColumnName="cmtTime" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="timeinfoes">
+      <EntityTypeMapping TypeName="manageremployeeModel.timeinfo">
+        <MappingFragment StoreEntitySet="timeinfo">
+          <ScalarProperty Name="idTime" ColumnName="idTime" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="workHours" ColumnName="workHours" />
+          <ScalarProperty Name="offDay" ColumnName="offDay" />
+          <ScalarProperty Name="overTime" ColumnName="overTime" />
+          <ScalarProperty Name="extraday" ColumnName="extraday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userlikes">
+      <EntityTypeMapping TypeName="manageremployeeModel.userlike">
+        <MappingFragment StoreEntitySet="userlike">
+          <ScalarProperty Name="likeID" ColumnName="likeID" />
+          <ScalarProperty Name="postID" ColumnName="postID" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="workhistories">
+      <EntityTypeMapping TypeName="manageremployeeModel.workhistory">
+        <MappingFragment StoreEntitySet="workhistory">
+          <ScalarProperty Name="idWorkHistory" ColumnName="idWorkHistory" />
+          <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+          <ScalarProperty Name="officenumber" ColumnName="officenumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="manageremployeeModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

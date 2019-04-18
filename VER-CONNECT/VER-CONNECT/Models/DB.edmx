@@ -1,0 +1,1148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="manageremployeeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="blogposts">
+          <Key>
+            <PropertyRef Name="postId" />
+          </Key>
+          <Property Name="postId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="blogID" Type="int" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="content" Type="nvarchar" MaxLength="1000" />
+          <Property Name="postDate" Type="date" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="blogs">
+          <Key>
+            <PropertyRef Name="blogID" />
+          </Key>
+          <Property Name="blogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="blogTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="createDate" Type="date" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="comments">
+          <Key>
+            <PropertyRef Name="commentID" />
+          </Key>
+          <Property Name="commentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="postId" Type="int" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="content" Type="nvarchar" MaxLength="500" />
+          <Property Name="cmtTime" Type="datetime" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="contactemployeeinfo">
+          <Key>
+            <PropertyRef Name="idContact" />
+          </Key>
+          <Property Name="idContact" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="phoneNumber" Type="varchar" MaxLength="30" />
+          <Property Name="ctCity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ctAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="ctPostalCode" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="employeedetail">
+          <Key>
+            <PropertyRef Name="employeeID" />
+          </Key>
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="40" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="avtUrl" Type="varchar" MaxLength="500" />
+          <Property Name="dateOfBirth" Type="date" />
+        </EntityType>
+        <EntityType Name="qualification">
+          <Key>
+            <PropertyRef Name="idQualification" />
+          </Key>
+          <Property Name="idQualification" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="experience" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="salaryinfo">
+          <Key>
+            <PropertyRef Name="idSalaryinfo" />
+          </Key>
+          <Property Name="idSalaryinfo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="monthlySalary" Type="int" />
+          <Property Name="monneyCurrency" Type="int" />
+          <Property Name="monneyDeductions" Type="int" />
+          <Property Name="monneyInsurance" Type="int" />
+        </EntityType>
+        <EntityType Name="secondcomment">
+          <Key>
+            <PropertyRef Name="secondcmt" />
+          </Key>
+          <Property Name="secondcmt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="commentID" Type="int" Nullable="false" />
+          <Property Name="employeeIDcmt" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="content" Type="nvarchar" MaxLength="500" />
+          <Property Name="cmtTime" Type="datetime" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="timeinfo">
+          <Key>
+            <PropertyRef Name="idTime" />
+          </Key>
+          <Property Name="idTime" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="workHours" Type="int" />
+          <Property Name="offDay" Type="int" />
+          <Property Name="overTime" Type="int" />
+          <Property Name="extraday" Type="int" />
+        </EntityType>
+        <EntityType Name="userlike">
+          <Key>
+            <PropertyRef Name="likeID" />
+          </Key>
+          <Property Name="likeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="postID" Type="int" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workhistory">
+          <Key>
+            <PropertyRef Name="idWorkHistory" />
+          </Key>
+          <Property Name="idWorkHistory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employeeID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="companyName" Type="nvarchar" MaxLength="40" />
+          <Property Name="address" Type="nvarchar" MaxLength="40" />
+          <Property Name="phoneNumber" Type="varchar" MaxLength="30" />
+          <Property Name="officenumber" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <Association Name="FK_BLOGS">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="blogs" Type="Self.blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="blogs">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BLOGSX">
+          <End Role="blogs" Type="Self.blogs" Multiplicity="1" />
+          <End Role="blogposts" Type="Self.blogposts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogs">
+              <PropertyRef Name="blogID" />
+            </Principal>
+            <Dependent Role="blogposts">
+              <PropertyRef Name="blogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMMENTS">
+          <End Role="blogposts" Type="Self.blogposts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comments" Type="Self.comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogposts">
+              <PropertyRef Name="postId" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="postId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACT">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="contactemployeeinfo" Type="Self.contactemployeeinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="contactemployeeinfo">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="blogposts" Type="Self.blogposts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="blogposts">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="workhistory" Type="Self.workhistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="workhistory">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE">
+          <End Role="blogposts" Type="Self.blogposts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userlike" Type="Self.userlike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogposts">
+              <PropertyRef Name="postId" />
+            </Principal>
+            <Dependent Role="userlike">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOGIN">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUALIFICATION">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="qualification" Type="Self.qualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="qualification">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALARY">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="salaryinfo" Type="Self.salaryinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="salaryinfo">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCOMMENTS">
+          <End Role="comments" Type="Self.comments" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="secondcomment" Type="Self.secondcomment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comments">
+              <PropertyRef Name="commentID" />
+            </Principal>
+            <Dependent Role="secondcomment">
+              <PropertyRef Name="commentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIME">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="timeinfo" Type="Self.timeinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="timeinfo">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="manageremployeeModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="blogposts" EntityType="Self.blogposts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="blogs" EntityType="Self.blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comments" EntityType="Self.comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contactemployeeinfo" EntityType="Self.contactemployeeinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="employeedetail" EntityType="Self.employeedetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="qualification" EntityType="Self.qualification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="salaryinfo" EntityType="Self.salaryinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="secondcomment" EntityType="Self.secondcomment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="timeinfo" EntityType="Self.timeinfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userlike" EntityType="Self.userlike" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="workhistory" EntityType="Self.workhistory" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BLOGS" Association="Self.FK_BLOGS">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="blogs" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BLOGSX" Association="Self.FK_BLOGSX">
+            <End Role="blogs" EntitySet="blogs" />
+            <End Role="blogposts" EntitySet="blogposts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMMENTS" Association="Self.FK_COMMENTS">
+            <End Role="blogposts" EntitySet="blogposts" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACT" Association="Self.FK_CONTACT">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="contactemployeeinfo" EntitySet="contactemployeeinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE" Association="Self.FK_EMPLOYEE">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="blogposts" EntitySet="blogposts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY" Association="Self.FK_HISTORY">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="workhistory" EntitySet="workhistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE" Association="Self.FK_LIKE">
+            <End Role="blogposts" EntitySet="blogposts" />
+            <End Role="userlike" EntitySet="userlike" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOGIN" Association="Self.FK_LOGIN">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUALIFICATION" Association="Self.FK_QUALIFICATION">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="qualification" EntitySet="qualification" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALARY" Association="Self.FK_SALARY">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="salaryinfo" EntitySet="salaryinfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCOMMENTS" Association="Self.FK_SECCOMMENTS">
+            <End Role="comments" EntitySet="comments" />
+            <End Role="secondcomment" EntitySet="secondcomment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIME" Association="Self.FK_TIME">
+            <End Role="employeedetail" EntitySet="employeedetail" />
+            <End Role="timeinfo" EntitySet="timeinfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="manageremployeeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_LOGIN" FromRole="AspNetUsers" ToRole="employeedetail" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="blogpost">
+          <Key>
+            <PropertyRef Name="postId" />
+          </Key>
+          <Property Name="postId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="blogID" Type="Int32" Nullable="false" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="postDate" Type="DateTime" Precision="0" />
+          <Property Name="ImageURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="blog" Relationship="Self.FK_BLOGSX" FromRole="blogposts" ToRole="blogs" />
+          <NavigationProperty Name="comments" Relationship="Self.FK_COMMENTS" FromRole="blogposts" ToRole="comments" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_EMPLOYEE" FromRole="blogposts" ToRole="employeedetail" />
+          <NavigationProperty Name="userlikes" Relationship="Self.FK_LIKE" FromRole="blogposts" ToRole="userlike" />
+        </EntityType>
+        <EntityType Name="blog">
+          <Key>
+            <PropertyRef Name="blogID" />
+          </Key>
+          <Property Name="blogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="blogTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="createDate" Type="DateTime" Precision="0" />
+          <Property Name="ImageURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="blogposts" Relationship="Self.FK_BLOGSX" FromRole="blogs" ToRole="blogposts" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_BLOGS" FromRole="blogs" ToRole="employeedetail" />
+        </EntityType>
+        <EntityType Name="comment">
+          <Key>
+            <PropertyRef Name="commentID" />
+          </Key>
+          <Property Name="commentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postId" Type="Int32" Nullable="false" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="cmtTime" Type="DateTime" Precision="3" />
+          <Property Name="ImageURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="blogpost" Relationship="Self.FK_COMMENTS" FromRole="comments" ToRole="blogposts" />
+          <NavigationProperty Name="secondcomments" Relationship="Self.FK_SECCOMMENTS" FromRole="comments" ToRole="secondcomment" />
+        </EntityType>
+        <EntityType Name="contactemployeeinfo">
+          <Key>
+            <PropertyRef Name="idContact" />
+          </Key>
+          <Property Name="idContact" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="phoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ctCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ctAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ctPostalCode" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_CONTACT" FromRole="contactemployeeinfo" ToRole="employeedetail" />
+        </EntityType>
+        <EntityType Name="employeedetail">
+          <Key>
+            <PropertyRef Name="employeeID" />
+          </Key>
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="avtUrl" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dateOfBirth" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_LOGIN" FromRole="employeedetail" ToRole="AspNetUsers" />
+          <NavigationProperty Name="blogposts" Relationship="Self.FK_EMPLOYEE" FromRole="employeedetail" ToRole="blogposts" />
+          <NavigationProperty Name="blogs" Relationship="Self.FK_BLOGS" FromRole="employeedetail" ToRole="blogs" />
+          <NavigationProperty Name="contactemployeeinfoes" Relationship="Self.FK_CONTACT" FromRole="employeedetail" ToRole="contactemployeeinfo" />
+          <NavigationProperty Name="workhistories" Relationship="Self.FK_HISTORY" FromRole="employeedetail" ToRole="workhistory" />
+          <NavigationProperty Name="qualifications" Relationship="Self.FK_QUALIFICATION" FromRole="employeedetail" ToRole="qualification" />
+          <NavigationProperty Name="salaryinfoes" Relationship="Self.FK_SALARY" FromRole="employeedetail" ToRole="salaryinfo" />
+          <NavigationProperty Name="timeinfoes" Relationship="Self.FK_TIME" FromRole="employeedetail" ToRole="timeinfo" />
+        </EntityType>
+        <EntityType Name="qualification">
+          <Key>
+            <PropertyRef Name="idQualification" />
+          </Key>
+          <Property Name="idQualification" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="experience" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_QUALIFICATION" FromRole="qualification" ToRole="employeedetail" />
+        </EntityType>
+        <EntityType Name="salaryinfo">
+          <Key>
+            <PropertyRef Name="idSalaryinfo" />
+          </Key>
+          <Property Name="idSalaryinfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="monthlySalary" Type="Int32" />
+          <Property Name="monneyCurrency" Type="Int32" />
+          <Property Name="monneyDeductions" Type="Int32" />
+          <Property Name="monneyInsurance" Type="Int32" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_SALARY" FromRole="salaryinfo" ToRole="employeedetail" />
+        </EntityType>
+        <EntityType Name="secondcomment">
+          <Key>
+            <PropertyRef Name="secondcmt" />
+          </Key>
+          <Property Name="secondcmt" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="commentID" Type="Int32" Nullable="false" />
+          <Property Name="employeeIDcmt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="content" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="cmtTime" Type="DateTime" Precision="3" />
+          <Property Name="ImageURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="comment" Relationship="Self.FK_SECCOMMENTS" FromRole="secondcomment" ToRole="comments" />
+        </EntityType>
+        <EntityType Name="timeinfo">
+          <Key>
+            <PropertyRef Name="idTime" />
+          </Key>
+          <Property Name="idTime" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="workHours" Type="Int32" />
+          <Property Name="offDay" Type="Int32" />
+          <Property Name="overTime" Type="Int32" />
+          <Property Name="extraday" Type="Int32" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_TIME" FromRole="timeinfo" ToRole="employeedetail" />
+        </EntityType>
+        <EntityType Name="userlike">
+          <Key>
+            <PropertyRef Name="likeID" />
+          </Key>
+          <Property Name="likeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="postID" Type="Int32" Nullable="false" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="blogpost" Relationship="Self.FK_LIKE" FromRole="userlike" ToRole="blogposts" />
+        </EntityType>
+        <EntityType Name="workhistory">
+          <Key>
+            <PropertyRef Name="idWorkHistory" />
+          </Key>
+          <Property Name="idWorkHistory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employeeID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="companyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="phoneNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="officenumber" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="employeedetail" Relationship="Self.FK_HISTORY" FromRole="workhistory" ToRole="employeedetail" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LOGIN">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BLOGSX">
+          <End Role="blogs" Type="Self.blog" Multiplicity="1" />
+          <End Role="blogposts" Type="Self.blogpost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogs">
+              <PropertyRef Name="blogID" />
+            </Principal>
+            <Dependent Role="blogposts">
+              <PropertyRef Name="blogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_COMMENTS">
+          <End Role="blogposts" Type="Self.blogpost" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="comments" Type="Self.comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogposts">
+              <PropertyRef Name="postId" />
+            </Principal>
+            <Dependent Role="comments">
+              <PropertyRef Name="postId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLOYEE">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="blogposts" Type="Self.blogpost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="blogposts">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LIKE">
+          <End Role="blogposts" Type="Self.blogpost" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="userlike" Type="Self.userlike" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="blogposts">
+              <PropertyRef Name="postId" />
+            </Principal>
+            <Dependent Role="userlike">
+              <PropertyRef Name="postID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BLOGS">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="blogs" Type="Self.blog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="blogs">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SECCOMMENTS">
+          <End Role="comments" Type="Self.comment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="secondcomment" Type="Self.secondcomment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="comments">
+              <PropertyRef Name="commentID" />
+            </Principal>
+            <Dependent Role="secondcomment">
+              <PropertyRef Name="commentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTACT">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="contactemployeeinfo" Type="Self.contactemployeeinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="contactemployeeinfo">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HISTORY">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="workhistory" Type="Self.workhistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="workhistory">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QUALIFICATION">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="qualification" Type="Self.qualification" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="qualification">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SALARY">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="salaryinfo" Type="Self.salaryinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="salaryinfo">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TIME">
+          <End Role="employeedetail" Type="Self.employeedetail" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="timeinfo" Type="Self.timeinfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeedetail">
+              <PropertyRef Name="employeeID" />
+            </Principal>
+            <Dependent Role="timeinfo">
+              <PropertyRef Name="employeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="manageremployeeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="blogposts" EntityType="Self.blogpost" />
+          <EntitySet Name="blogs" EntityType="Self.blog" />
+          <EntitySet Name="comments" EntityType="Self.comment" />
+          <EntitySet Name="contactemployeeinfoes" EntityType="Self.contactemployeeinfo" />
+          <EntitySet Name="employeedetails" EntityType="Self.employeedetail" />
+          <EntitySet Name="qualifications" EntityType="Self.qualification" />
+          <EntitySet Name="salaryinfoes" EntityType="Self.salaryinfo" />
+          <EntitySet Name="secondcomments" EntityType="Self.secondcomment" />
+          <EntitySet Name="timeinfoes" EntityType="Self.timeinfo" />
+          <EntitySet Name="userlikes" EntityType="Self.userlike" />
+          <EntitySet Name="workhistories" EntityType="Self.workhistory" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LOGIN" Association="Self.FK_LOGIN">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BLOGSX" Association="Self.FK_BLOGSX">
+            <End Role="blogs" EntitySet="blogs" />
+            <End Role="blogposts" EntitySet="blogposts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_COMMENTS" Association="Self.FK_COMMENTS">
+            <End Role="blogposts" EntitySet="blogposts" />
+            <End Role="comments" EntitySet="comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLOYEE" Association="Self.FK_EMPLOYEE">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="blogposts" EntitySet="blogposts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LIKE" Association="Self.FK_LIKE">
+            <End Role="blogposts" EntitySet="blogposts" />
+            <End Role="userlike" EntitySet="userlikes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BLOGS" Association="Self.FK_BLOGS">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="blogs" EntitySet="blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SECCOMMENTS" Association="Self.FK_SECCOMMENTS">
+            <End Role="comments" EntitySet="comments" />
+            <End Role="secondcomment" EntitySet="secondcomments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTACT" Association="Self.FK_CONTACT">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="contactemployeeinfo" EntitySet="contactemployeeinfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HISTORY" Association="Self.FK_HISTORY">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="workhistory" EntitySet="workhistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QUALIFICATION" Association="Self.FK_QUALIFICATION">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="qualification" EntitySet="qualifications" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SALARY" Association="Self.FK_SALARY">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="salaryinfo" EntitySet="salaryinfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TIME" Association="Self.FK_TIME">
+            <End Role="employeedetail" EntitySet="employeedetails" />
+            <End Role="timeinfo" EntitySet="timeinfoes" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="manageremployeeModelStoreContainer" CdmEntityContainer="manageremployeeEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="manageremployeeModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="manageremployeeModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="manageremployeeModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="manageremployeeModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="blogposts">
+            <EntityTypeMapping TypeName="manageremployeeModel.blogpost">
+              <MappingFragment StoreEntitySet="blogposts">
+                <ScalarProperty Name="postId" ColumnName="postId" />
+                <ScalarProperty Name="blogID" ColumnName="blogID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="postDate" ColumnName="postDate" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="blogs">
+            <EntityTypeMapping TypeName="manageremployeeModel.blog">
+              <MappingFragment StoreEntitySet="blogs">
+                <ScalarProperty Name="blogID" ColumnName="blogID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="blogTitle" ColumnName="blogTitle" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comments">
+            <EntityTypeMapping TypeName="manageremployeeModel.comment">
+              <MappingFragment StoreEntitySet="comments">
+                <ScalarProperty Name="commentID" ColumnName="commentID" />
+                <ScalarProperty Name="postId" ColumnName="postId" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="cmtTime" ColumnName="cmtTime" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactemployeeinfoes">
+            <EntityTypeMapping TypeName="manageremployeeModel.contactemployeeinfo">
+              <MappingFragment StoreEntitySet="contactemployeeinfo">
+                <ScalarProperty Name="idContact" ColumnName="idContact" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="ctCity" ColumnName="ctCity" />
+                <ScalarProperty Name="ctAddress" ColumnName="ctAddress" />
+                <ScalarProperty Name="ctPostalCode" ColumnName="ctPostalCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employeedetails">
+            <EntityTypeMapping TypeName="manageremployeeModel.employeedetail">
+              <MappingFragment StoreEntitySet="employeedetail">
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="avtUrl" ColumnName="avtUrl" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="qualifications">
+            <EntityTypeMapping TypeName="manageremployeeModel.qualification">
+              <MappingFragment StoreEntitySet="qualification">
+                <ScalarProperty Name="idQualification" ColumnName="idQualification" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="experience" ColumnName="experience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="salaryinfoes">
+            <EntityTypeMapping TypeName="manageremployeeModel.salaryinfo">
+              <MappingFragment StoreEntitySet="salaryinfo">
+                <ScalarProperty Name="idSalaryinfo" ColumnName="idSalaryinfo" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="monthlySalary" ColumnName="monthlySalary" />
+                <ScalarProperty Name="monneyCurrency" ColumnName="monneyCurrency" />
+                <ScalarProperty Name="monneyDeductions" ColumnName="monneyDeductions" />
+                <ScalarProperty Name="monneyInsurance" ColumnName="monneyInsurance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="secondcomments">
+            <EntityTypeMapping TypeName="manageremployeeModel.secondcomment">
+              <MappingFragment StoreEntitySet="secondcomment">
+                <ScalarProperty Name="secondcmt" ColumnName="secondcmt" />
+                <ScalarProperty Name="commentID" ColumnName="commentID" />
+                <ScalarProperty Name="employeeIDcmt" ColumnName="employeeIDcmt" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="cmtTime" ColumnName="cmtTime" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="timeinfoes">
+            <EntityTypeMapping TypeName="manageremployeeModel.timeinfo">
+              <MappingFragment StoreEntitySet="timeinfo">
+                <ScalarProperty Name="idTime" ColumnName="idTime" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="workHours" ColumnName="workHours" />
+                <ScalarProperty Name="offDay" ColumnName="offDay" />
+                <ScalarProperty Name="overTime" ColumnName="overTime" />
+                <ScalarProperty Name="extraday" ColumnName="extraday" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userlikes">
+            <EntityTypeMapping TypeName="manageremployeeModel.userlike">
+              <MappingFragment StoreEntitySet="userlike">
+                <ScalarProperty Name="likeID" ColumnName="likeID" />
+                <ScalarProperty Name="postID" ColumnName="postID" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workhistories">
+            <EntityTypeMapping TypeName="manageremployeeModel.workhistory">
+              <MappingFragment StoreEntitySet="workhistory">
+                <ScalarProperty Name="idWorkHistory" ColumnName="idWorkHistory" />
+                <ScalarProperty Name="employeeID" ColumnName="employeeID" />
+                <ScalarProperty Name="companyName" ColumnName="companyName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+                <ScalarProperty Name="officenumber" ColumnName="officenumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="manageremployeeModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
