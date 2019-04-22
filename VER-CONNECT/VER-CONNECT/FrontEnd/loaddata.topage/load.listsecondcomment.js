@@ -28,7 +28,7 @@ function loadlistsecondcomment(commentID) {
                 </div>
             </div>
             `;
-            $(`#listcmt` + commentID + ``).append(tx);
+            $(`#loadsecondlist` + commentID + ``).append(tx);
         });
         arrcheckloadsec.push(commentID); 
     }

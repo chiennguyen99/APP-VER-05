@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.4.1\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.4.1\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -195,7 +201,9 @@
     <Compile Include="Controllers\PageNews\commentsController.cs" />
     <Compile Include="Controllers\PageNews\secondcommentsController.cs" />
     <Compile Include="Controllers\PageNews\userpostController.cs" />
+    <Compile Include="Controllers\PostCommentController.cs" />
     <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\PostSecCommentController.cs" />
     <Compile Include="Controllers\Table\contactemployeeinfoesController.cs" />
     <Compile Include="Controllers\Table\employeedetailsController.cs" />
     <Compile Include="Controllers\Table\qualificationsController.cs" />
@@ -251,6 +259,8 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Pushblog.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Pushcmt.cs" />
+    <Compile Include="Models\Pushseconndcmt.cs" />
     <Compile Include="Models\qualification.cs">
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
@@ -270,6 +280,7 @@
       <DependentUpon>DB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Signalr\loadpage.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -279,7 +290,6 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="FrontEnd\charts.html" />
     <Content Include="FrontEnd\css.dev\all-download.css" />
     <Content Include="FrontEnd\css.dev\css-fonts-download.css" />
     <Content Include="FrontEnd\css.dev\dataTables.bootstrap4.css" />
@@ -308,6 +318,7 @@
     <Content Include="FrontEnd\css\v4-shims.css" />
     <Content Include="FrontEnd\css\v4-shims.min.css" />
     <Content Include="FrontEnd\handling.new\post.blogs.js" />
+    <Content Include="FrontEnd\handling.new\secondcomment.blog.js" />
     <Content Include="FrontEnd\js.bootstrap.jquery\bootstrap.bundle.js" />
     <Content Include="FrontEnd\js.bootstrap.jquery\Chart.min.js" />
     <Content Include="FrontEnd\js.bootstrap.jquery\datatables-demo.js" />
@@ -338,8 +349,6 @@
     <Content Include="FrontEnd\loaddata.topage\load.blogpost.js" />
     <Content Include="FrontEnd\loaddata.topage\load.listcomment.js" />
     <Content Include="FrontEnd\loaddata.topage\load.listsecondcomment.js" />
-    <Content Include="FrontEnd\register.html" />
-    <Content Include="FrontEnd\table.html" />
     <Content Include="FrontEnd\webfonts\fa-brands-400.svg" />
     <Content Include="FrontEnd\webfonts\fa-regular-400.svg" />
     <Content Include="FrontEnd\webfonts\fa-solid-900.svg" />
@@ -347,6 +356,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Image\anime.jpg" />
     <Content Include="Image\card.jpg" />
+    <Content Include="Image\createac.jpg" />
+    <Content Include="Image\employee.jpg" />
+    <Content Include="Image\forgotpass.jpg" />
     <Content Include="Image\iconfinder_like_1814076.jpg" />
     <Content Include="Image\me.jpg" />
     <Content Include="Image\moon.jpg" />
@@ -383,17 +395,22 @@
     <Content Include="Models\DB.edmx.diagram">
       <DependentUpon>DB.edmx</DependentUpon>
     </Content>
+    <Content Include="FrontEnd\handling.new\comment.blogs.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.js" />
+    <Content Include="Scripts\jquery.signalR-2.4.1.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\signalr\jquery-ui-1.10.3.js" />
+    <Content Include="Scripts\signalr\jquery-ui-1.10.3.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -437,6 +454,10 @@
     <Folder Include="App_Data\" />
     <Folder Include="Image\avt\" />
     <Folder Include="Image\blogs\" />
+    <Folder Include="Image\comments\" />
+    <Folder Include="Image\secondcomments\" />
+    <Folder Include="Views\PostComment\" />
+    <Folder Include="Views\PostSecComment\" />
     <Folder Include="Views\Post\" />
   </ItemGroup>
   <ItemGroup>

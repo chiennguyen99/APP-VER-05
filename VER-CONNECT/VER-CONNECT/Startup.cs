@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(VER_CONNECT.Startup))]
+[assembly: OwinStartup(typeof(VER_CONNECT.Startup))]
 namespace VER_CONNECT
 {
     public partial class Startup
@@ -9,6 +9,8 @@ namespace VER_CONNECT
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            // test signalr
+            app.MapSignalR();
         }
     }
 }

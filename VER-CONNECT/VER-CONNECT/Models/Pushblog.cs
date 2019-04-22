@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WorkWithImage.Models
+namespace VER_CONNECT.Models
 {
     using System;
     using System.Collections.Generic;

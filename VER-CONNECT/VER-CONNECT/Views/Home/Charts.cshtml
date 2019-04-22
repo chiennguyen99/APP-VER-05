@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Microsoft.AspNet.Identity
+@{
     ViewBag.Title = "Charts";
     Layout = null;
 }
@@ -343,34 +344,38 @@
                     <!-- Page Heading -->
                     <!-- Content Row -->
                     <div class="row">
-
-                        <div class="col-xl-8 col-lg-7" id="data-news">
+                        <div class="col-xl-8 col-lg-7">
                             <!-- begin blog post -->
-                            <div class="card shadow mb-4">
-                                <!-- Card Header - Accordion -->
-                                <a href="#blogpost" class="d-block card-header py-3 collapsed" onclick="loadtitle(17020608)" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
-                                    <h6 class="m-0 font-weight-bold text-primary">Push your blogs</h6>
-                                </a>
-                                <!-- Card Content - Collapse -->
-                                <div class="collapse" id="blogpost">
-                                    <div class="card-body">
-                                        <form method="post" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
-                                            <div class="btn-block">
-                                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    Title
-                                                </button>
-                                                <input type="text" id="title-push" name="Title" placeholder="More title" style="width:216px;height: 36px">
-                                                <b style="padding-left: 20px" id="namefileImage"></b>
-                                                <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton" id="loadTitleBlog"></div>
-                                            </div>
-                                            <input type="text" name="textContent" class="form-control bg-light border-0 small btn-block" placeholder="text content..." aria-describedby="basic-addon2">
-                                            <span class="btn btn-google btn-block btn-file btn-primary"><i class="fas fa-file-image"></i> Choose file image <input type="file" id="image-content" name="ImageFile"></span>
-                                            <button class="btn btn-facebook btn-block btn-file btn-primary"><i class="fas fa-upload"></i> Post</button>
-                                        </form>
+                            <div id="head-blogpost">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Accordion -->
+                                    <a href="#blogpost" class="d-block card-header py-3 collapsed" onclick="loadtitle(@User.Identity.GetUserId())" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+                                        <h6 class="m-0 font-weight-bold text-primary">Push your blogs</h6>
+                                    </a>
+                                    <!-- Card Content - Collapse -->
+                                    <div class="collapse" id="blogpost">
+                                        <div class="card-body">
+                                            <form id="form-push-data" method="post" enctype="multipart/form-data" onsubmit="return AjaxPost(this)">
+                                                <div class="btn-block">
+                                                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Title
+                                                    </button>
+                                                    <input type="text" id="title-push" name="Title" placeholder="More title" style="width:216px;height: 36px">
+                                                    <b style="padding-left: 20px" id="namefileImage"></b>
+                                                    <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton" id="loadTitleBlog"></div>
+                                                </div>
+                                                <input type="text" name="textContent" class="form-control bg-light border-0 small btn-block" placeholder="text content..." aria-describedby="basic-addon2">
+                                                <span class="btn btn-google btn-block btn-file btn-primary"><i class="fas fa-file-image"></i> Choose file image <input type="file" id="image-content" name="ImageFile"></span>
+                                                <button class="btn btn-facebook btn-block btn-file btn-primary"><i class="fas fa-upload"></i> Post</button>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
+                            <div id="data-news">
+
+                            </div>
                             <!-- end blog post -->
                             <!-- begin content blogposts -->
                             <!-- end content blogposts -->
@@ -434,13 +439,14 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="~/FrontEnd/js.bootstrap.jquery/jquery.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
     <script src="~/FrontEnd/js.loaddata.pagenews/loaddata.blogposts.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="~/FrontEnd/js.bootstrap.jquery/bootstrap.bundle.js"></script>
@@ -453,8 +459,6 @@
     <script src="~/FrontEnd/js.bootstrap.jquery/dataTables.bootstrap4.js"></script>
     <!-- Page level custom scripts -->
     <script src="~/FrontEnd/js.bootstrap.jquery/datatables-demo.js"></script>
-
-
     <!-- Load data to news -->
     <script src="~/FrontEnd/loaddata.topage/load.blogpost.js"></script>
     <!-- Load data to first comments -->
@@ -463,8 +467,16 @@
     <!-- Load data to second commments -->
     <script src="~/FrontEnd/js.loaddata.pagenews/loaddata.second.listcomment.js"></script>
     <script src="~/FrontEnd/loaddata.topage/load.listsecondcomment.js"></script>
-    <!-- handling blogs post -->
+    @*signalr library*@
+    <script src="~/Scripts/signalr/jquery-ui-1.10.3.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.4.1.min.js"></script>
+    <script src="/signalr/hubs"></script>
+    @*handling post page*@
     <script src="~/FrontEnd/handling.new/post.blogs.js"></script>
+    @*handling post comment *@
+    <script src="~/FrontEnd/handling.new/comment.blogs.js"></script>
+    @*handling post second comment *@
+    <script src="~/FrontEnd/handling.new/secondcomment.blog.js"></script>
 </body>
 
 </html>

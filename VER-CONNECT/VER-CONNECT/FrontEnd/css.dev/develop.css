@@ -63,3 +63,11 @@
     cursor: inherit;
     display: block;
 }
+
+#button-addon2 {
+    margin-right: 2px;
+}
+
+#body-comment {
+    background-color: #e6f2ff;
+}
