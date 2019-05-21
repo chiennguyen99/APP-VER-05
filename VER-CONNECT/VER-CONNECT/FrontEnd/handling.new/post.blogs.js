@@ -101,8 +101,9 @@ $(function () {
                             <h6 class="m-0 font-weight-bold text-primary">Comment</h6>
                         </a>
                         <div class="collapse" id="collapseCardExample`+ postID + `">
-                            <div class="card-body">
-                                <div id="content-comment-post`+ postID + `"></div>
+                            <div class="card-body" id="body-comment">
+                                <div id="content-comment-post`+ postID + `">
+                                </div>
 
                                 <div id="push-comment-post`+ postID + `">
                                       <div class="input-group mb-3">

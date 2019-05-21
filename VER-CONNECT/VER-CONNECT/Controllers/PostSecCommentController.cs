@@ -24,6 +24,7 @@ namespace VER_CONNECT.Controllers
             {
                 String userID = User.Identity.GetUserId();
                 String userName = User.Identity.GetUserName();
+                employeedetail ed = db.employeedetails.FirstOrDefault(x => x.employeeID == userID);
                 string path = "";
                 string textcontent = "";
                 DateTime cmtTime = DateTime.Now;
@@ -60,7 +61,7 @@ namespace VER_CONNECT.Controllers
                 {
                     idsecondcomment = scomment.secondcmt,
                     commentID = data.commentID,
-                    avtURL = "/Image/anime.jpg",
+                    avtURL = ed.avtUrl,
                     userName = userName,
                     textContent = textcontent,
                     Image = path,

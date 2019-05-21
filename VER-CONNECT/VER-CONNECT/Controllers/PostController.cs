@@ -47,6 +47,7 @@ namespace VER_CONNECT.Controllers
 
                 //bool exists = db.blogs.Any(x => x.blogTitle == title);
                 blog checkblog = db.blogs.FirstOrDefault(x => x.blogTitle == title && x.employeeID == userID);
+                employeedetail ed = db.employeedetails.FirstOrDefault(x => x.employeeID == userID);
                 int blogID;
                 // save to blogs when don't exists. 
                 if (checkblog == null)
@@ -77,7 +78,7 @@ namespace VER_CONNECT.Controllers
                 ModelState.Clear();
                 var result = new
                 {
-                    avtUrl = "/Image/anime.jpg",
+                    avtUrl = ed.avtUrl,
                     userName = userName,
                     album = title,
                     datetime = myDateTime.ToString(),

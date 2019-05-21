@@ -50,6 +50,8 @@ namespace VER_CONNECT.Controllers
                 }
 
                 comment cmt = new comment();
+                employeedetail ed = db.employeedetails.FirstOrDefault(x => x.employeeID == userID);
+
                 cmt.employeeID = userID;
                 cmt.postId = data.postID;
                 cmt.content = textcontent;
@@ -64,7 +66,7 @@ namespace VER_CONNECT.Controllers
                 {
                     idcmt = cmt.commentID, 
                     postID = data.postID,
-                    avtURL = "/Image/anime.jpg",
+                    avtURL = ed.avtUrl,
                     userName = userName,
                     textContent = textcontent,
                     Image = path,

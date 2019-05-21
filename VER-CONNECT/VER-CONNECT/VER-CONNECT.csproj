@@ -355,6 +355,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Image\anime.jpg" />
+    <Content Include="Image\avt\hoang.jpg" />
     <Content Include="Image\card.jpg" />
     <Content Include="Image\createac.jpg" />
     <Content Include="Image\employee.jpg" />
@@ -364,6 +365,7 @@
     <Content Include="Image\moon.jpg" />
     <Content Include="Image\myBirthday1.jpg" />
     <Content Include="Image\myBithday7.jpg" />
+    <Content Include="Image\thanh.jpg" />
     <Content Include="Models\DB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB.edmx</DependentUpon>
@@ -452,7 +454,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Image\avt\" />
     <Folder Include="Image\blogs\" />
     <Folder Include="Image\comments\" />
     <Folder Include="Image\secondcomments\" />
